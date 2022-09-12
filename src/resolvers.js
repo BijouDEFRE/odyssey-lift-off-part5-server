@@ -1,3 +1,7 @@
+/* eslint-disable arrow-body-style */
+/* eslint arrow-body-style: ["error", "as-needed"] */
+/* eslint-env es6 */
+
 const resolvers = {
   Query: {
     // returns an array of Tracks that will be used to populate the homepage grid of our web client
@@ -44,6 +48,12 @@ const resolvers = {
     modules: ({ id }, _, { dataSources }) => {
       return dataSources.trackAPI.getTrackModules(id);
     },
+
+    durationInSeconds: ({ length }) => length,
+  },
+
+  Module: {
+    durationInSeconds: ({ length }) => length,
   },
 };
 
